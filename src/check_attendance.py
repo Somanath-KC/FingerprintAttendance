@@ -22,7 +22,7 @@ def check_attendance():
             compare.append(compare_fingerprints(ip_bio, card_data['bio2'])[1])
 
             if max(compare) >= 40:
-                log_attendance(card_data['card_num'], card_data['_id'])
+                log_attendance(card_data['card_num'], card_data['_id'], card_data['role'])
                 print("Present")
             else:
                 print("Biometrics dose not matched! Please try again.")

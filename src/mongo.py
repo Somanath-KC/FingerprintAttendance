@@ -92,10 +92,11 @@ def get_card_details(card_num):
     return data
 
 
-def log_attendance(card_num, id):
+def log_attendance(card_num, id, role):
     try:
         AttendanceLog.insert_one({ 'CARD_NUMBER': card_num, 
                                    'ID': id, 
+                                   'ROLE': role,
                                    'DATE_TIME': datetime.now(), 
                                    'SESSION_ID': os.environ['SESSION_ID']
                                  })
@@ -109,13 +110,29 @@ def get_session_details():
 
 
 def get_present_people_with_session_id():
-    res = [i for i in AttendanceLog.find({'SESSION_ID': os.environ['SESSION_ID']})]
+    res = [i for i in AttendanceLog.find({'SESSION_ID': os.environ['SESSION_ID'], "ROLE": "student"})]
     return [i['ID'] for i in res]
 
 
 def get_absent_people_with_session_id():
-    res1 = [i for i in AttendanceLog.find({'SESSION_ID': os.environ['SESSION_ID']})]
+    res1 = [i for i in AttendanceLog.find({'SESSION_ID': os.environ['SESSION_ID'], "ROLE": "student"})]
     res2  = [i for i in Students.find({})]
+    
+    res = set([i['_id'] for i in res2]) - set([i['ID'] for i in res1])
+    
+    if len(res) == 0:
+        return ["ALL WERE PRESENT"]
+    else:
+        return res
+
+def get_present_faculty_with_session_id():
+    res = [i for i in AttendanceLog.find({'SESSION_ID': os.environ['SESSION_ID'], "ROLE": "faculty"})]
+    return [i['ID'] for i in res]
+
+
+def get_absent_faculty_with_session_id():
+    res1 = [i for i in AttendanceLog.find({'SESSION_ID': os.environ['SESSION_ID'], "ROLE": "faculty"})]
+    res2  = [i for i in Faculty.find({})]
     
     res = set([i['_id'] for i in res2]) - set([i['ID'] for i in res1])
     
