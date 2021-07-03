@@ -3,6 +3,8 @@ from .mongo import log_attendance
 from .rfid import read_rfid_card
 from .biometrics import read_fingerprint, compare_fingerprints
 from time import sleep
+from src.lcd import lcd
+
 
 def check_attendance():
     print("Started Accepting Attendance..\n")
@@ -11,6 +13,7 @@ def check_attendance():
 
         if not check_if_card_exists(card_num):
             print("Card not registered.")
+            lcd.write_string("Card not registered.")
             sleep(2)
         else:
             card_data = get_card_details(card_num)
@@ -24,5 +27,7 @@ def check_attendance():
             if max(compare) >= 40:
                 log_attendance(card_data['card_num'], card_data['_id'], card_data['role'])
                 print("Present")
+                lcd.write_string("Success!")
             else:
+                lcd.write_string("Biometrics not matched!")
                 print("Biometrics dose not matched! Please try again.")
