@@ -8,7 +8,6 @@ from src.utils.register_faculty import register_faculty
 from src.utils.register_biometric import register_biometric
 from src.utils.delete_biometric import delete_st_fc_biometric
 from src.check_attendance import check_attendance
-from RPLCD.i2c import CharLCD
 
 
 args = sys.argv

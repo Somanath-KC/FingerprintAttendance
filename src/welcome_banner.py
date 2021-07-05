@@ -1,12 +1,11 @@
 import time
 import sys
-from src.lcd import lcd
+from src.lcd import lcd_write
 
 
 def print_banner():
-    lcd.write_string("Attendance System")
-    lcd.cursor_pos = (1, 0)
-    lcd.write_string("Loading...")
+    lcd_write("Attendance System")
+    lcd_write("Loading...")
     print("""\n
 **********************************************************************************************
 *                                                                                            *
@@ -40,4 +39,4 @@ def loading():
         sys.stdout.flush()
     
     print("\n")
-    lcd.clear()
+

@@ -3,7 +3,7 @@ from pyfingerprint.pyfingerprint import FINGERPRINT_CHARBUFFER1
 from pyfingerprint.pyfingerprint import FINGERPRINT_CHARBUFFER2
 #from src.mongo import check_person_in_biometrics
 from time import sleep
-from src.lcd import lcd
+from src.lcd import lcd_write
 
 
 f = PyFingerprint('/dev/ttyUSB0', 57600, 0xFFFFFFFF, 0x00000000)
@@ -14,16 +14,14 @@ def read_fingerprint():
             raise ValueError('The given fingerprint sensor password is wrong!')
 
     except Exception as e:
-        lcd.clear()
-        lcd.write_string("Fingerprint Sensor not initialized!")
+        lcd_write("System Error")
         print('The fingerprint sensor could not be initialized!')
         print('Exception message: ' + str(e))
         exit(1)
 
     # Start reading fingerpirnt
     print("Put your finger on sensor")
-    lcd.clear()
-    lcd.write_string("Put your finger on sensor")
+    lcd_write("Put your finger on sensor")
     while ( f.readImage() == False ):
         pass
     

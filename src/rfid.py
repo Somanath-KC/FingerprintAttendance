@@ -2,8 +2,7 @@ from time import sleep
 import sys
 from mfrc522 import SimpleMFRC522
 from RPi import GPIO
-from src.lcd import lcd
-
+from src.lcd import lcd_write
 
 GPIO.setwarnings(False)
 
@@ -12,15 +11,13 @@ def read_rfid_card():
     try:
         #GPIO.cleanup()
         while True:
-            lcd.clear()
-            lcd.write_string("Hold your tag \n near the reader")
+            lcd_write("Hold your tag near the reader")
             print("Hold a tag near the reader")
             return reader.read()[0]
     except KeyboardInterrupt:
         GPIO.cleanup()
-        lcd.clear()
-        lcd.write_string("Error Reading Card")
-        print("Error Reading RFID Card")
+        lcd_write("Error Reading Card")
+        print("Error Reading Card")
         exit()
 
 if __name__ == "__main__":
