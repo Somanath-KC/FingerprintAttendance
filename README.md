@@ -1,2 +1,3 @@
-# FingerprintAttendance
-Attendance Using Fingerprint &amp; RFID Card
+# RFID-Fingerprint-Attendance
+
+Attendance using Fingerprint, RFID Card &amp; RaspberryPI
