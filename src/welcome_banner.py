@@ -15,17 +15,17 @@ def print_banner():
 *   |  _ <|  _|  | || |_| |  / ___ \| |   | | | |___| |\  | |_| / ___ \| |\  | |___| |___    *
 *   |_| \_\_|   |___|____/  /_/   \_\_|   |_| |_____|_| \_|____/_/   \_\_| \_|\____|_____|   *
 *                                                                                            *
-*         | B.Tech Project 2021 | Dept of Electronics & Communication Engg. | GVPCE  |       *
+*         | B.Tech Project 2022 | Dept of Electronics & Communication Engg. | RCEE  |        *
 *                                                                                            *
 *                                                                                            *
 * Team Members                                                      Mentor                   *
-*  > 17JG1A0486 - P Sowmya                                          > Mr. P V K Chaitanya    *
-*  > 17JG1A0485 - P Sowdhamini                                                               *
-*  > 17JG1A0475	- N Hari Priya                                                               *
-*  > 18JG5A0404	- D Uma Maheshwari                                                           *
+*  > 18ME1A04G8 - V Jyoshitha                                       > A.N.L Harisha          *
+*  > 18ME1A04G3 - U Sai Kiran                                                                *
+*  > 18ME1A04F4	- T Charturya                                                                *
+*  > 18ME1A04E6	- SK Nagulmeera                                                              *
 *                                                                                            *
 *                                                                                            *
-* Year: IV                            Section: B                                Branch: ECE  *
+* Year: IV                            Section: C                                Branch: ECE  *
 **********************************************************************************************\n""")
 
 

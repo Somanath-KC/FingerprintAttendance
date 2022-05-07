@@ -7,9 +7,9 @@ def register_student():
     year = input("Enter Year: ").upper()
     branch = input("Enter Branch: ").upper()
     section = input("Section: ").upper()
+    mobile = input("Enter Mobile Number: ").upper()
 
-
-    if not(s_id and name and year and branch and section):
+    if not(s_id and name and year and branch and section and mobile):
         print("Registration Failed. Some Feilds were empty.")
         return
 
@@ -17,7 +17,7 @@ def register_student():
         print("Student ID Already Exists!")
         exit()
 
-    if add_student(s_id, name, year, branch, section):
+    if add_student(s_id, name, year, branch, section, mobile):
         print("Registration Successful.")
     else:
         print("Registration Failed. Error adding to Database.")

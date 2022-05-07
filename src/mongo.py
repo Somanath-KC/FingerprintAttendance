@@ -4,7 +4,7 @@ from datetime import datetime
 import os
 
 # MongoDB Connection
-client = MongoClient("mongodb://pythonclient:password@localhost:27017/")
+client = MongoClient("mongodb://localhost:27017/")
 db = client['attendance']
 
 # MongoDB Collections
@@ -15,13 +15,14 @@ AttendanceLog = db['AttendanceLog']
 AttendanceSessions = db['AttendanceSessions']
 
 
-def add_student(s_id, name, year, branch, section):
+def add_student(s_id, name, year, branch, section, mobile):
     try:
         Students.insert_one({"_id": s_id, 
                          "NAME": name,
                          "YEAR": year,
                          "BRANCH": branch,
-                         "SECTION": section})
+                         "SECTION": section,
+                         "MOBILE": mobile})
         return True
     except Exception as e:
         print(e)
